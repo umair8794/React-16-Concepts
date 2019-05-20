@@ -9,7 +9,14 @@ class App extends Component {
   };
 
   updateTeacher = teacher => {
-    this.setState({ teacher });
+    const newTeacher = teacher;
+    this.setState(prevState => {
+        if (prevState.teacher === newTeacher) {
+            return null;
+        }
+
+        return { teacher };
+    });
   }
 
   render() {
